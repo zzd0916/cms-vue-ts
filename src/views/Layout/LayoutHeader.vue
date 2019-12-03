@@ -60,22 +60,28 @@ export default class LayoutHeader extends Vue{
     line-height: 60px;
     height: 60px;
     color: #fff;
+    overflow: hidden;
     .system-info {
+        vertical-align: middle;
         img {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            margin: 5px 0 5px 5px;
+            margin: 0px 0 0px 5px;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
     .system-user {
         float: right;
         .userinfo-inner {
             img {
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
                 border-radius: 50%;
-                margin: 5px 0 5px 5px;
+                margin: 0px 0 0px 5px;
+                display: inline-block;
+                vertical-align: middle;
             }
         }
         

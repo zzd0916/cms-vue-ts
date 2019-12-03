@@ -1,6 +1,5 @@
 <template>
-  <div id="home">
-   
+  <div class="app">
     <router-view/>
   </div>
 </template>
@@ -26,7 +25,7 @@ export default class App extends Vue{
 </script>
 
 <style lang="scss">
-.home {
+.app {
   width: 100%;
   height: 100%;
 }

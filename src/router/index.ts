@@ -6,11 +6,77 @@ import Layout from '../views/Layout/Index.vue';
 
 Vue.use(VueRouter)
 
-const routes = [
+export const asyncRouterMap = [
   {
     path: '/',
-    name: 'layout',
-    component: Layout
+    name: 'dashboard',
+    component: Layout,
+    redirect: '/home',
+    children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('@/views/Home.vue')
+      }
+    ]
+  },
+  {
+    path: '/dataManage',
+    name: 'dataManage',
+    component: Layout,
+    redirect: '/tableData',
+    children: [
+      {
+        path: '/tableData',
+        name: 'tableData',
+        component: () => import('@/views/DataManage/TableData.vue')
+      },
+      {
+        path: '/chartsData',
+        name: 'chartsData',
+        component: () => import('@/views/DataManage/ChartsData.vue')
+      },
+      {
+        path: '/formData',
+        name: 'formData',
+        component: () => import('@/views/DataManage/FormData.vue')
+      }
+    ]
+  },
+  {
+    path: '/userManage',
+    name: 'userManage',
+    component: Layout,
+    redirect: '/accountData',
+    children: [
+      {
+        path: '/accountData',
+        name: 'accountData',
+        component: () => import('@/views/UserManage/AccountData.vue')
+      }
+    ]
+  },
+  {
+    path: '/user',
+    name: 'user',
+    component: Layout,
+    redirect: '/userInfo',
+    children: [
+      {
+        path: '/userInfo',
+        name: 'userInfo',
+        component: () => import('@/views/UserManage/UserInfo.vue')
+      }
+    ]
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/404.vue')
+  },
+  {
+    path: '*',
+    redirect: '/404'
   },
   {
     path: '/login',
@@ -22,13 +88,12 @@ const routes = [
     name: 'password',
     component: () => import('@/views/Password.vue')
   }
-  
 ]
 
 const router:any = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes: asyncRouterMap
 })
 
 router.beforeEach( (to:any, from:any, next:any) => {

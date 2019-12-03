@@ -1,6 +1,9 @@
 <template>
     <div class="home">
-        This is home
+        <div>
+            <h1 class="title"> welcome to home </h1>  
+            <p class="desc"> 进击的小牛牛后台管理系统</p>
+        </div>
     </div>
 </template>
 
@@ -16,5 +19,16 @@ export default class Home extends Vue{}
 </script>
 
 <style lang="scss" scoped>
-
+.home {
+    .title {
+        font-size: 36px;
+        text-align: center;
+        font-weight: bold;
+        margin: 40px;
+    }
+    .desc {
+        font-size: 20px;
+        text-align: center;
+    }
+}
 </style>
