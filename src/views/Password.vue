@@ -7,7 +7,7 @@
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-position="left" label-width="0px">
                     <el-form-item prop="username">
                         <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder="用户名">
-                            <i slot="prefix" class="fa fa-envelope-o"></i>
+                            <i slot="prefix" class="fa fa-user-o"></i>
                         </el-input>
                     </el-form-item>
                     <el-form-item prop="email">
@@ -108,7 +108,7 @@ export default class Password extends Vue {
             margin-right: 5px;
             width: 24px;
             text-align: center;
-            font-size: 18px;
+            font-size: 16px;
         }
     }
 }

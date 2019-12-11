@@ -34,7 +34,7 @@ import { State, Getter, Action, Mutation } from 'vuex-class'
 })
 
 export default class LayoutHeader extends Vue{
-    @Getter('getUser') getUser: any;
+    @Getter('user') getUser: any;
 
     userCommand(command: String):void {
         if(command === "logout") {

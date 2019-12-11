@@ -6,10 +6,14 @@
                 <h2 class="login-title">登陆系统</h2>
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-position="left" label-width="0px">
                     <el-form-item prop="username">
-                        <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder="账号"></el-input>
+                        <el-input type="text" v-model="ruleForm.username" autocomplete="off" placeholder="账号">
+                            <i slot="prefix" class="fa fa-user-o"></i>
+                        </el-input>
                     </el-form-item>
                     <el-form-item prop="password">
-                        <el-input type="password" v-model="ruleForm.password" autocomplete="off" placeholder="密码"></el-input>
+                        <el-input type="password" v-model="ruleForm.password" autocomplete="off" placeholder="密码">
+                            <i slot="prefix" class="fa fa-lock f18"></i>
+                        </el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" :loading="isLoading" @click.native.prevent="submitForm('ruleForm')">登陆</el-button>
@@ -111,6 +115,15 @@ export default class Login extends Vue {
     }
     .el-form-item {
         text-align: center;
+        i {
+            margin-right: 5px;
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .f18 {
+            font-size: 18px;
+        }
     }
 }
 </style>
