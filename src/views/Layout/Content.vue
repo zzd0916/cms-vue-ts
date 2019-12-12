@@ -10,9 +10,13 @@
             <div class="top">
                 <i class="fa fa-reorder"></i>
                 <el-breadcrumb class="breadcrumb" separator="/">
-                    <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-                    <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-                    <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+                    <el-breadcrumb-item 
+                        v-for="(item,index) in breadCrumbItems"
+                        :key="index"
+                        :to="{path: item.path}"
+                        >
+                        {{item.title}}
+                    </el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
             <!-- 页面内容 -->
@@ -25,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue} from 'vue-property-decorator'
+import { Component, Vue, Provide, Watch} from 'vue-property-decorator'
 
 // 装饰器模式
 @Component({
@@ -33,7 +37,32 @@ import { Component, Vue} from 'vue-property-decorator'
 })
 
 export default class Content extends Vue{
+    @Provide() breadCrumbItems: any; // 面包屑数组
 
+    @Watch("$route") handleRouteChange(to:any) {
+        this.initBreadCrumbItems(to);
+    } 
+
+    created() {
+        this.initBreadCrumbItems(this.$route);
+    }
+
+    initBreadCrumbItems(router: any) {
+        // console.log(router)
+        // 根路由title
+        let breadCrumbItems = [{path: '/', title:'后台管理系统'}]
+        // 遍历父级当前子路有页面的title和path存储到数组里
+        for(let index in router.matched) {
+            if(router.matched[index].meta && router.matched[index].meta.title) {
+                breadCrumbItems.push({
+                    path: router.matched[index].path ? router.matched[index].path : '/',
+                    title: router.matched[index].meta.title
+                })
+            }
+        }
+        this.breadCrumbItems = breadCrumbItems;
+        // console.log(this.breadCrumbItems)
+    }
 }
 </script>
 

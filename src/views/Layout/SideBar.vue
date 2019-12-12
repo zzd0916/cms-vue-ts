@@ -56,7 +56,7 @@ export default class SideBar extends Vue{
     @Getter('routers') routers: any ;
 
     created() {
-        console.log(this.routers)
+        // console.log(this.routers)
     }
 }
 </script>
