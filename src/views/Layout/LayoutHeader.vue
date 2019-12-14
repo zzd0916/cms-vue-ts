@@ -43,10 +43,11 @@ export default class LayoutHeader extends Vue{
         }
         if(command === "userCenter") {
             this.$message.info('userCenter')
+            this.$router.push("/user")
         }
     }
     created() {
-        console.log(this.getUser)
+        // console.log(this.getUser)
     }
 
 }

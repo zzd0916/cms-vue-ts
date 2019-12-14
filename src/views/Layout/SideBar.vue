@@ -62,5 +62,12 @@ export default class SideBar extends Vue{
 </script>
 
 <style lang="scss" scoped>
-
+.el-menu-slide {
+    i {
+        margin-right: 5px;
+    }
+    .fa-home {
+        font-size: 18px;
+    }
+}
 </style>

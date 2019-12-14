@@ -84,7 +84,7 @@ export default class Content extends Vue{
             display: flex;
             align-items: center;
             i{
-                font-size: 20px;
+                font-size: 18px;
                 cursor: pointer;
                 padding-left: 16px;
             }
@@ -94,8 +94,9 @@ export default class Content extends Vue{
         }
         .content {
             padding: 10px;
-            height: calc(100% - 55px);
+            height: calc(100% - 115px);
             box-sizing: border-box;
+            background: #e6e6e6;
         }
     }
 }
